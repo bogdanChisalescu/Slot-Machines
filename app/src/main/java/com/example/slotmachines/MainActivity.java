@@ -11,6 +11,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(savedInstanceState != null)
+            counter = savedInstanceState.getInt("counter");
+
         setContentView(R.layout.activity_main);
 
     }
