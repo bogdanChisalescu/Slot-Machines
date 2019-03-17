@@ -1,5 +1,6 @@
 package com.example.slotmachines;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
             counter = savedInstanceState.getInt("counter");
 
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
     }
 
