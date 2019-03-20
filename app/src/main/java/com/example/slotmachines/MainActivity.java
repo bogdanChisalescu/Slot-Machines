@@ -1,6 +1,7 @@
 package com.example.slotmachines;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Button showButton = findViewById(R.id.ShowMoney);
         Button startButton = findViewById(R.id.StartButton);
 
+        final Intent slotsIntent = new Intent(this, Slots.class);//required to start the second activity
+
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,18 +37,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(slotsIntent);
+            }
+        });
         //write new code here
     }
 
 
-    @Override
+    @Override //don't touch this for the moment
     protected void onResume() {
         super.onResume();
 
 
     }
 
-    @Override
+    @Override //Don't touch this
     public void onBackPressed() {
 
         AlertDialog.Builder builder;
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-
+                //does nothing (as it should, just disappears)
             }
         });
         builder.show();
