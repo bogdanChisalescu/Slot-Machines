@@ -19,28 +19,108 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/brock_bg" />
+        app:srcCompat="@drawable/brick_bg" />
 
-    <Button
-        android:id="@+id/singleButton"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="24dp"
-        android:text="PRESS ME"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/InterfaceLayout"
+        android:layout_width="0dp"
+        android:layout_height="109dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:cropToPadding="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ui_bg" />
+
+        <Button
+            android:id="@+id/right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="431dp"
+            android:layout_marginLeft="431dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="270dp"
+            android:layout_marginRight="270dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginLeft="305dp"
+            android:layout_marginTop="47dp"
+            android:layout_marginEnd="395dp"
+            android:layout_marginRight="395dp"
+            android:layout_marginBottom="27dp"
+            android:background="@drawable/left"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/AutoSpinButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="472dp"
+            android:layout_marginLeft="472dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="143dp"
+            android:layout_marginRight="143dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/blue"
+            android:text="Auto Spin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/SpinButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="472dp"
+            android:layout_marginLeft="472dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="143dp"
+            android:layout_marginRight="143dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/orange"
+            android:text="SPIN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ConstraintLayout"
-        android:layout_width="607dp"
-        android:layout_height="277dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="32dp"
@@ -48,7 +128,7 @@
         android:layout_marginRight="64dp"
         android:layout_marginBottom="24dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/singleButton"
+        app:layout_constraintBottom_toTopOf="@+id/InterfaceLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -1400,7 +1480,6 @@
             android:id="@+id/Frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
