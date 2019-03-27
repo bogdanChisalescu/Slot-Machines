@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //makes the app enter fullscreen
 
-
             //declaring main menu buttons
         Button exitButton = findViewById(R.id.ExitButton);
         Button settingsButton = findViewById(R.id.SettingsButton);

@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import java.util.ArrayList;
 
 public class Slots extends AppCompatActivity {
 
-    Button button;
+    static float Win;
+    static float Bet;
+    static float Money;
+    Player Raul = new Player();
+    Button spinButton;
     int i;
     ArrayList<ImageView> image = new ArrayList<ImageView>();
     ArrayList<ObjectAnimator> cascada = new ArrayList<ObjectAnimator>();
@@ -23,8 +26,10 @@ public class Slots extends AppCompatActivity {
     ArrayList<ObjectAnimator> cascada3 = new ArrayList<ObjectAnimator>();
     ArrayList<ObjectAnimator> ecranul = new ArrayList<ObjectAnimator>();
 
+        //I consider moving some code in onResume() for better logic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slots);
         View overlay = findViewById(R.id.layout);
@@ -32,7 +37,7 @@ public class Slots extends AppCompatActivity {
         overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
 
 
-        button = (Button)findViewById(R.id.SpinButton);
+        spinButton = (Button)findViewById(R.id.SpinButton);
 
         //image1.setBackgroundResource(R.drawable.img1);
         // image2.setBackgroundResource(R.drawable.img2);
@@ -40,9 +45,10 @@ public class Slots extends AppCompatActivity {
             image.add((ImageView) findViewById(getResources().getIdentifier("imageView" + (i + 1), "id", getPackageName())));
         }
 
+
         for(i=0;i<15;i++) {
             ecranul.add(ObjectAnimator.ofFloat(image.get(i), "translationY",  0, 2800));
-            ecranul.get(i).setDuration(1000);
+             ecranul.get(i).setDuration(1000);
             cascada.add(ObjectAnimator.ofFloat(image.get(i+15), "translationY", -2800, 0));
             cascada.get(i).setDuration(1000);
             cascada1.add(ObjectAnimator.ofFloat(image.get(i+30), "translationY", -2100, 700));
@@ -53,9 +59,24 @@ public class Slots extends AppCompatActivity {
             cascada3.get(i).setDuration(1000);
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        spinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Money >= Bet){
+
+                    Money -= Bet;
+                    //update label in UI
+                    Raul.initSlot();
+                    Raul.calculateWins();
+                    //add animations
+                    Win = Raul.returnWin();
+                    Money += Win;
+                    //update label in UI
+                }
+                else{ /*send a message that the player has an invalid bet*/}
+
                 AnimatorSet AnimCas = new AnimatorSet();
                 AnimatorSet AnimCas1 = new AnimatorSet();
                 AnimatorSet AnimCas2 = new AnimatorSet();
