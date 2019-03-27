@@ -2,6 +2,7 @@ package com.example.slotmachines;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,22 +10,31 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class Slots extends AppCompatActivity {
 
-    static float Win;
-    static float Bet;
-    static float Money;
+    static float win;
+    static float bet;
+    static float money;
     Player Raul = new Player();
     Button spinButton;
     int i;
+
     ArrayList<ImageView> image = new ArrayList<ImageView>();
+
     ArrayList<ObjectAnimator> cascada = new ArrayList<ObjectAnimator>();
     ArrayList<ObjectAnimator> cascada1 = new ArrayList<ObjectAnimator>();
     ArrayList<ObjectAnimator> cascada2 = new ArrayList<ObjectAnimator>();
     ArrayList<ObjectAnimator> cascada3 = new ArrayList<ObjectAnimator>();
     ArrayList<ObjectAnimator> ecranul = new ArrayList<ObjectAnimator>();
+
+
+    // TextView BalanceText = findViewById(R.id.Balance);
+    // TextView BetText = findViewById(R.id.Bet);
+    //SharedPreferences save = getSharedPreferences(WinText.getText().toString(), 0);
 
         //I consider moving some code in onResume() for better logic
     @Override
@@ -35,6 +45,9 @@ public class Slots extends AppCompatActivity {
         View overlay = findViewById(R.id.layout);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
         overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+
+        final TextView WinText = findViewById(R.id.Win);
+        win = 0;
 
 
         spinButton = (Button)findViewById(R.id.SpinButton);
@@ -64,18 +77,8 @@ public class Slots extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(Money >= Bet){
-
-                    Money -= Bet;
-                    //update label in UI
-                    Raul.initSlot();
-                    Raul.calculateWins();
-                    //add animations
-                    Win = Raul.returnWin();
-                    Money += Win;
-                    //update label in UI
-                }
-                else{ /*send a message that the player has an invalid bet*/}
+                ++win;
+                WinText.setText( Float.toString(win));
 
                 AnimatorSet AnimCas = new AnimatorSet();
                 AnimatorSet AnimCas1 = new AnimatorSet();
