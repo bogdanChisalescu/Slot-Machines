@@ -63,7 +63,7 @@ public class Player {
 
         int max = winCoeff[0], index = -1;
         for(int i = 0;i < winCoeff.length; i++)
-            if(winCoeff[i] > max && activeWin[i] == true) {
+            if(winCoeff[i] >= max && activeWin[i] == true) {
                 max = winCoeff[i];
                 index = i;
             }
