@@ -62,27 +62,25 @@ public class MainActivity extends AppCompatActivity {
     @Override //Don't touch this
     public void onBackPressed() {
 
-        AlertDialog.Builder builder;
-        builder = new AlertDialog.Builder(MainActivity.this);
+        //View overlay = findViewById(R.id.layout);
+        //overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.MyDialogTheme);
+        builder.setMessage("Lost enough money (exit) ? ")
 
-        builder.setMessage("Lost enough money (exit) ? ");
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.super.onBackPressed();
+                    }
+                })
 
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                MainActivity.super.onBackPressed();
-            }
-        });
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
+                    }
+                });
         builder.show();
-
 
     }
 }

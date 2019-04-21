@@ -50,7 +50,7 @@ public class Slots extends AppCompatActivity {
         setContentView(R.layout.activity_slots);
         View overlay = findViewById(R.id.layout);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
         sharedPreferences = this.getSharedPreferences("sharedPref", 0);
         editor = sharedPreferences.edit();
 
@@ -75,21 +75,21 @@ public class Slots extends AppCompatActivity {
         BalanceText.setText(Float.toString(money));
 
         //image1.setBackgroundResource(R.drawable.img1);
-        for(i=0;i<75;i++) {   //loads the image views into image array
+        for (i = 0; i < 75; i++) {   //loads the image views into image array
             image.add((ImageView) findViewById(getResources().getIdentifier("imageView" + (i + 1), "id", getPackageName())));
         }
 
 
-        for(i=0;i<15;i++) {   //defines the animation type and duration for the image array elements
-            ecranul.add(ObjectAnimator.ofFloat(image.get(i), "translationY",  0, 2800));
+        for (i = 0; i < 15; i++) {   //defines the animation type and duration for the image array elements
+            ecranul.add(ObjectAnimator.ofFloat(image.get(i), "translationY", 0, 2800));
             ecranul.get(i).setDuration(1000);
-            cascada.add(ObjectAnimator.ofFloat(image.get(i+15), "translationY", -2800, 0));
+            cascada.add(ObjectAnimator.ofFloat(image.get(i + 15), "translationY", -2800, 0));
             cascada.get(i).setDuration(1000);
-            cascada1.add(ObjectAnimator.ofFloat(image.get(i+30), "translationY", -2100, 700));
+            cascada1.add(ObjectAnimator.ofFloat(image.get(i + 30), "translationY", -2100, 700));
             cascada1.get(i).setDuration(1000);
-            cascada2.add(ObjectAnimator.ofFloat(image.get(i+45), "translationY", -1400, 1400));
+            cascada2.add(ObjectAnimator.ofFloat(image.get(i + 45), "translationY", -1400, 1400));
             cascada2.get(i).setDuration(1000);
-            cascada3.add(ObjectAnimator.ofFloat(image.get(i+60), "translationY", -700, 2100));
+            cascada3.add(ObjectAnimator.ofFloat(image.get(i + 60), "translationY", -700, 2100));
             cascada3.get(i).setDuration(1000);
         }
 
@@ -99,7 +99,7 @@ public class Slots extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         View overlay = findViewById(R.id.layout);
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
 
 
         final AnimatorSet AnimCas = new AnimatorSet();
@@ -112,7 +112,7 @@ public class Slots extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(money >= bet) {
+                if (money >= bet) {
 
 
                     money -= bet;
@@ -137,8 +137,7 @@ public class Slots extends AppCompatActivity {
                     WinText.setText(Float.toString(win));
                     BalanceText.setText(Float.toString(money));
 
-                }
-                else{
+                } else {
                     AlertDialog.Builder message = new AlertDialog.Builder(Slots.this);
                     message.setMessage("Not enough money");
                     message.show();
@@ -151,7 +150,7 @@ public class Slots extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(bet < 10){
+                if (bet < 10) {
 
                     bet += 2;
                     Raul.setBet(bet);
@@ -165,7 +164,7 @@ public class Slots extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(bet > 2){
+                if (bet > 2) {
 
                     bet -= 2;
                     Raul.setBet(bet);
@@ -174,11 +173,13 @@ public class Slots extends AppCompatActivity {
             }
         });
 
-}
+    }
 
     @Override
     protected void onStop() {
         super.onStop();
+        View overlay = findViewById(R.id.layout);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         editor.putFloat("userMoney", money);
         editor.putFloat("userBet", bet);
@@ -188,10 +189,20 @@ public class Slots extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        View overlay = findViewById(R.id.layout);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         editor.putFloat("userMoney", money);
         editor.putFloat("userBet", bet);
         editor.commit();
     }
-}
 
+    protected void onRestart() {
+        super.onRestart();
+
+        View overlay = findViewById(R.id.layout);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
+
+
+    }
+}
