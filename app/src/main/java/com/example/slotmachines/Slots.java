@@ -172,6 +172,15 @@ public class Slots extends AppCompatActivity {
 }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+
+        editor.putFloat("userMoney", money);
+        editor.putFloat("userBet", bet);
+        editor.commit();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 
