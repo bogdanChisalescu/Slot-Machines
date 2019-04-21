@@ -31,7 +31,8 @@ public class Slots extends AppCompatActivity {
     TextView BetText;
     int i;
 
-    SharedPreferences load; //used to store the value of money variable and bet variable
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     ArrayList<ImageView> image = new ArrayList<ImageView>();
 
@@ -50,6 +51,8 @@ public class Slots extends AppCompatActivity {
         View overlay = findViewById(R.id.layout);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
         overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+        sharedPreferences = this.getSharedPreferences("sharedPref", 0);
+        editor = sharedPreferences.edit();
 
         //UI elements declarations
         increaseBet = findViewById(R.id.right);
@@ -60,18 +63,14 @@ public class Slots extends AppCompatActivity {
         BetText = findViewById(R.id.Bet);
 
         //load the money variable stored in permanent memory
-        /*load = getSharedPreferences("userMoney", 0);
-        Money = load.getString("userMoney", "100");
-        money = Float.parseFloat(Money);
+        money = sharedPreferences.getFloat("userMoney", 100);
         Raul.setMoney(money); //sets the money variable to be used by the Player class to perform calculations
 
         //load the bet variable stored in permanent memory
-        load = getSharedPreferences("userBet", 0);
-        Bet  =load.getString("userBet", "1");
-        bet = Float.parseFloat(Bet);
+        bet = sharedPreferences.getFloat("userBet", 2);
         Raul.setBet(bet); //sets the bet variable to be used by the Player class to perform calculations
 
-    */
+
         BetText.setText(Float.toString(bet));
         BalanceText.setText(Float.toString(money));
 
@@ -124,7 +123,7 @@ public class Slots extends AppCompatActivity {
                     AnimCas2.play(cascada2.get(0)).with(cascada2.get(1)).with(cascada2.get(2)).with(cascada2.get(3)).with(cascada2.get(4)).with(cascada2.get(5)).with(cascada2.get(6)).with(cascada2.get(7)).with(cascada2.get(8)).with(cascada2.get(9)).with(cascada2.get(10)).with(cascada2.get(11)).with(cascada2.get(12)).with(cascada2.get(13)).with(cascada2.get(14));
                     AnimCas3.play(cascada3.get(0)).with(cascada3.get(1)).with(cascada3.get(2)).with(cascada3.get(3)).with(cascada3.get(4)).with(cascada3.get(5)).with(cascada3.get(6)).with(cascada3.get(7)).with(cascada3.get(8)).with(cascada3.get(9)).with(cascada3.get(10)).with(cascada3.get(11)).with(cascada3.get(12)).with(cascada3.get(13)).with(cascada3.get(14));
                     AnimEcr.play(ecranul.get(0)).with(ecranul.get(1)).with(ecranul.get(2)).with(ecranul.get(3)).with(ecranul.get(4)).with(ecranul.get(5)).with(ecranul.get(6)).with(ecranul.get(7)).with(ecranul.get(8)).with(ecranul.get(9)).with(ecranul.get(10)).with(ecranul.get(11)).with(ecranul.get(12)).with(ecranul.get(13)).with(ecranul.get(14));
-                    AnimCas.start(); //comands the start of the animations
+                    AnimCas.start(); //commands the start of the animations
                     AnimCas1.start();
                     AnimCas2.start();
                     AnimCas3.start();
@@ -176,15 +175,9 @@ public class Slots extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        /*SharedPreferences erase = getSharedPreferences("userMoney", 0);
-        erase.edit().remove(Money).commit();
-        erase = getSharedPreferences("userBet", 0);
-        erase.edit().remove(Bet).commit();*/
-        /*
-        SharedPreferences.Editor save = load.edit();
-        save.putString("userMoney", Float.toString(money)).commit();
-        save.putString("userBet", Float.toString(bet)).commit();
-        */
+        editor.putFloat("userMoney", money);
+        editor.putFloat("userBet", bet);
+        editor.commit();
     }
 }
 

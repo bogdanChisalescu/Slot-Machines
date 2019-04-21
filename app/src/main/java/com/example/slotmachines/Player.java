@@ -3,7 +3,7 @@ package com.example.slotmachines;
 public class Player {
 
     private static float money;
-    private static float bet; //should have a minimum and maximum value, deal with it in android studio
+    private static float bet;
     private boolean[] activeWin = new boolean[30];
     private final int[] winCoeff = {10, 10, 10, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
     private int[][] slot = new int[15][5];
