@@ -2,6 +2,7 @@ package com.example.slotmachines;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -56,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
         overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
 
 
-    }
+}
 
     @Override //Don't touch this
     public void onBackPressed() {
 
         AlertDialog.Builder builder;
-        builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(MainActivity.this);
 
         builder.setMessage("Lost enough money (exit) ? ");
 
