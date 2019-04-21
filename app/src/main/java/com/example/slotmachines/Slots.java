@@ -19,7 +19,7 @@ public class Slots extends AppCompatActivity {
     //Variable & some UI elements declarations
     static float win;
     static float bet = 2;
-    static float money = 0;
+    static float money = 200;
     String Money;
     String Bet;
     Player Raul = new Player();
@@ -170,7 +170,7 @@ public class Slots extends AppCompatActivity {
             }
         });
 
-    }
+}
 
     @Override
     protected void onDestroy() {
