@@ -62,16 +62,21 @@ public class MainActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
 
         builder.setMessage("Lost enough money (exit) ? ");
+
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 MainActivity.super.onBackPressed();
             }
         });
+
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                //does nothing (as it should, just disappears)
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
             }
         });
+
         builder.show();
 
 
