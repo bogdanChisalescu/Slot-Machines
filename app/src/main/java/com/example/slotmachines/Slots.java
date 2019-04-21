@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,15 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Slots extends AppCompatActivity {
 
     //Variable & some UI elements declarations
     static float win;
-    static float bet = 2;
-    static float money = 200;
-    String Money;
-    String Bet;
+    static float bet;
+    static float money;
     Player Raul = new Player();
     Button spinButton;
     Button increaseBet;
@@ -63,7 +63,7 @@ public class Slots extends AppCompatActivity {
         BetText = findViewById(R.id.Bet);
 
         //load the money variable stored in permanent memory
-        money = sharedPreferences.getFloat("userMoney", 100);
+        money = sharedPreferences.getFloat("userMoney", 1000);
         Raul.setMoney(money); //sets the money variable to be used by the Player class to perform calculations
 
         //load the bet variable stored in permanent memory
@@ -136,7 +136,9 @@ public class Slots extends AppCompatActivity {
 
                 }
                 else{
-                    //show a message
+                    AlertDialog.Builder message = new AlertDialog.Builder(Slots.this);
+                    message.setMessage("Not enough money");
+                    message.show();
                 }
             }
         });
