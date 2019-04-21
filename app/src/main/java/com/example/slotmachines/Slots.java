@@ -50,7 +50,7 @@ public class Slots extends AppCompatActivity {
         setContentView(R.layout.activity_slots);
         View overlay = findViewById(R.id.layout);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
         sharedPreferences = this.getSharedPreferences("sharedPref", 0);
         editor = sharedPreferences.edit();
 
@@ -98,6 +98,9 @@ public class Slots extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        View overlay = findViewById(R.id.layout);
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN);
+
 
         final AnimatorSet AnimCas = new AnimatorSet();
         final AnimatorSet AnimCas1 = new AnimatorSet();

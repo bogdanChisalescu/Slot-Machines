@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //sets the layout defined in activity_main
+        View overlay = findViewById(R.id.layout_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //makes the app enter fullscreen
-
-            //declaring main menu buttons
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
+        //declaring main menu buttons
         Button exitButton = findViewById(R.id.ExitButton);
         Button settingsButton = findViewById(R.id.SettingsButton);
         Button showButton = findViewById(R.id.ShowMoney);
@@ -51,9 +51,12 @@ public class MainActivity extends AppCompatActivity {
     @Override //don't touch this for the moment
     protected void onResume() {
         super.onResume();
+        View overlay = findViewById(R.id.layout_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
+        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
 
 
-}
+    }
 
     @Override //Don't touch this
     public void onBackPressed() {
