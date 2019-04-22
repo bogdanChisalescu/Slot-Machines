@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //sets the layout defined in activity_main
+        SetFullscreen();
 
         //declaring main menu buttons
         Button exitButton = findViewById(R.id.ExitButton);
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 });
         builder.show();
     }
-    
+
   public void SetFullscreen() {
       final View decorView = getWindow().getDecorView();
       decorView.setOnSystemUiVisibilityChangeListener (new View.OnSystemUiVisibilityChangeListener() {

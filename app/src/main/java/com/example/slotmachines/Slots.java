@@ -53,7 +53,7 @@ public class Slots extends AppCompatActivity {
 
         sharedPreferences = this.getSharedPreferences("sharedPref", 0);
         editor = sharedPreferences.edit();
-
+        SetFullscreen();
         //UI elements declarations
         increaseBet = findViewById(R.id.right);
         decreaseBet = findViewById(R.id.left);
