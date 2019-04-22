@@ -2,6 +2,8 @@ package com.example.slotmachines;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
@@ -48,9 +50,7 @@ public class Slots extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slots);
-        View overlay = findViewById(R.id.layout);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //sets the orientation of the screen to landscape
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN); //disables the navigation and status bar
+
         sharedPreferences = this.getSharedPreferences("sharedPref", 0);
         editor = sharedPreferences.edit();
 
@@ -98,9 +98,8 @@ public class Slots extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        View overlay = findViewById(R.id.layout);
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
+        SetFullscreen();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         final AnimatorSet AnimCas = new AnimatorSet();
         final AnimatorSet AnimCas1 = new AnimatorSet();
@@ -138,13 +137,12 @@ public class Slots extends AppCompatActivity {
                     BalanceText.setText(Float.toString(money));
 
                 } else {
-                    AlertDialog.Builder message = new AlertDialog.Builder(Slots.this);
+                    AlertDialog.Builder message = new AlertDialog.Builder(Slots.this, R.style.MyDialogTheme);
                     message.setMessage("Not enough money");
                     message.show();
                 }
             }
         });
-
 
         increaseBet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,9 +176,7 @@ public class Slots extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        View overlay = findViewById(R.id.layout);
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
+        SetFullscreen();
         editor.putFloat("userMoney", money);
         editor.putFloat("userBet", bet);
         editor.commit();
@@ -189,9 +185,6 @@ public class Slots extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        View overlay = findViewById(R.id.layout);
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
         editor.putFloat("userMoney", money);
         editor.putFloat("userBet", bet);
         editor.commit();
@@ -199,10 +192,26 @@ public class Slots extends AppCompatActivity {
 
     protected void onRestart() {
         super.onRestart();
-
-        View overlay = findViewById(R.id.layout);
-        overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
+        SetFullscreen();
 
     }
+
+    public void SetFullscreen() {
+        final View decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener (new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(
+                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                }
+            }
+        });
+    }
+
 }
