@@ -5,22 +5,8 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/brick_bg"
     tools:context=".Slots">
-
-
-    <ImageView
-        android:id="@+id/Brick_bg"
-        android:layout_width="731dp"
-        android:layout_height="411dp"
-        android:layout_marginBottom="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/brick_bg" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/info_screen"
@@ -28,167 +14,163 @@
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="288dp"
+        android:layout_marginTop="27dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="97dp"
         android:background="@drawable/info_display"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout">
 
         <TextView
             android:id="@+id/info_display"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="TextView"
+            android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/InterfaceLayout"
-        android:layout_width="0dp"
-        android:layout_height="109dp"
-        app:layout_constraintBottom_toBottomOf="@+id/Brick_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout">
+        app:layout_constraintWidth_percent="0.8"
+        android:background="@drawable/ui_bg">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
             android:cropToPadding="true"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ui_bg" />
 
         <Button
+            android:id="@+id/left"
+            android:layout_width="33dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginRight="105dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bet_buttons_gl" />
+
+        <Button
             android:id="@+id/right"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="431dp"
-            android:layout_marginLeft="431dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="270dp"
-            android:layout_marginRight="270dp"
+            android:layout_width="33dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="183dp"
+            android:layout_marginLeft="183dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/left"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="305dp"
-            android:layout_marginLeft="305dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="395dp"
-            android:layout_marginRight="395dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/left"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/bet_buttons_gl" />
 
         <Button
             android:id="@+id/AutoSpinButton"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="472dp"
-            android:layout_marginLeft="472dp"
-            android:layout_marginTop="69dp"
-            android:layout_marginEnd="143dp"
-            android:layout_marginRight="143dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/blue"
-            android:text="Auto Spin"
+            android:text="AUTO SPIN"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/spin_vertical_glr"
+            app:layout_constraintStart_toStartOf="@+id/spin_vertical_gll"
+            app:layout_constraintTop_toBottomOf="@+id/SpinButton" />
 
         <Button
             android:id="@+id/SpinButton"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="472dp"
-            android:layout_marginLeft="472dp"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="143dp"
-            android:layout_marginRight="143dp"
-            android:layout_marginBottom="50dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/orange"
             android:text="SPIN"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6" />
+            app:layout_constraintBottom_toTopOf="@+id/AutoSpinButton"
+            app:layout_constraintEnd_toStartOf="@+id/spin_vertical_glr"
+            app:layout_constraintStart_toStartOf="@+id/spin_vertical_gll"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Win"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="160dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="380dp"
-            android:layout_marginRight="380dp"
-            android:layout_marginBottom="54dp"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="253dp"
+            android:layout_marginRight="253dp"
+            android:layout_marginBottom="51dp"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Balance"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="160dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="380dp"
-            android:layout_marginRight="380dp"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="253dp"
+            android:layout_marginRight="253dp"
             android:layout_marginBottom="8dp"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Bet"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="294dp"
-            android:layout_marginLeft="294dp"
-            android:layout_marginTop="63dp"
-            android:layout_marginEnd="256dp"
-            android:layout_marginRight="256dp"
-            android:layout_marginBottom="13dp"
+            android:layout_width="70dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginBottom="11dp"
             android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bet_buttons_gl" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/spin_vertical_gll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6731592" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/spin_vertical_glr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8644793" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/bet_buttons_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60714287" />
+
 
     </android.support.constraint.ConstraintLayout>
 
@@ -196,18 +178,14 @@
         android:id="@+id/ConstraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="50dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/InterfaceLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.55"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.70">
 
 
         <ImageView
@@ -1564,6 +1542,7 @@
             app:srcCompat="@drawable/frame" />
 
     </android.support.constraint.ConstraintLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>
