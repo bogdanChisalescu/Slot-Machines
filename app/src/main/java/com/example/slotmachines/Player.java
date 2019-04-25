@@ -6,7 +6,7 @@ public class Player {
     private static float bet;
     private boolean[] activeWin = new boolean[30];
     private final int[] winCoeff = {10, 10, 10, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
-    private int[][] slot = new int[15][5];
+    public int[][] slot = new int[15][5];
     private static float win;
 
 
@@ -14,7 +14,7 @@ public class Player {
 
         for (int i = 0; i < 15; i++)
             for (int j = 0; j < 5; j++)
-                slot[i][j] = (int) (Math.random() * 5 + 1);
+                slot[i][j] = (int) (Math.random() * 8 + 1);
     }
 
     public void calculateWins(){
@@ -54,27 +54,25 @@ public class Player {
 
     private boolean returnTruth(int s1, int s2, int s3, int s4, int s5){
 
-        if(s1 == s2 && s3 == s4 && s2 == s3 && s5 == s2) return true;
+        if(s1 == s2 && s1 == s3 && s1 == s4 && s1 == s5) return true;
         else return false;
 
     }
 
     public float returnWin(){
 
-        int max = winCoeff[0], index = -1;
+        int max = 0;
         for(int i = 0;i < winCoeff.length; i++)
-            if(winCoeff[i] >= max && activeWin[i] == true) {
-                max = winCoeff[i];
-                index = i;
-            }
+            if(activeWin[i] == true)
+                max += winCoeff[i];
 
-        if(index != -1) return winCoeff[index] * bet;
-        else return 0;
+            return max * bet;
+
     }
 
     public void setMoney(float amount){
 
-        money += amount;
+        money = amount;
     }
 
     public float getMoney(){
@@ -84,7 +82,7 @@ public class Player {
 
     public void setBet(float amount){
 
-        bet += amount;
+        bet = amount;
     }
 
     public float getBet(){
