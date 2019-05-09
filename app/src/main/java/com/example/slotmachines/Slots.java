@@ -138,11 +138,11 @@ public class Slots extends AppCompatActivity {
                                 else if (Raul.slot[i-12][j] == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
                                 else if (Raul.slot[i-12][j] == 6)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.rau);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.q);
                                 else if (Raul.slot[i-12][j] == 7)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.k);
                                 else if (Raul.slot[i-12][j] == 8)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
                          }else{
                         AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
@@ -161,18 +161,18 @@ public class Slots extends AppCompatActivity {
                                 image.get(i * 5 + j).setImageResource(R.drawable.bobina);
                             else if (Raul.slot[i][j] == 2)
                                 image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                            else if (Raul.slot[i][j] == 3)
+                                else if (Raul.slot[i][j] == 3)
                                 image.get(i * 5 + j).setImageResource(R.drawable.dioda);
                             else if (Raul.slot[i][j] == 4)
                                 image.get(i * 5 + j).setImageResource(R.drawable.resistor);
                             else if (Raul.slot[i][j] == 5)
                                 image.get(i * 5 + j).setImageResource(R.drawable.transistor);
                             else if (Raul.slot[i][j] == 6)
-                                image.get(i * 5 + j).setImageResource(R.drawable.rau);
+                                image.get(i * 5 + j).setImageResource(R.drawable.q);
                             else if (Raul.slot[i][j] == 7)
-                                image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
-                            else if (Raul.slot[i][j] == 8)
-                                image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
+                                image.get(i * 5 + j).setImageResource(R.drawable.k);
+                             else if (Raul.slot[i][j] == 8)
+                                image.get(i * 5 + j).setImageResource(R.drawable.j);
                         }
 
                     Raul.calculateWins();
@@ -237,11 +237,11 @@ public class Slots extends AppCompatActivity {
                                 else if (Raul.slot[i-12][j] == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
                                 else if (Raul.slot[i-12][j] == 6)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.rau);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.q);
                                 else if (Raul.slot[i-12][j] == 7)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.k);
                                 else if (Raul.slot[i-12][j] == 8)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
                         }else{
                             AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
@@ -267,11 +267,11 @@ public class Slots extends AppCompatActivity {
                                 else if (Raul.slot[i][j] == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
                                 else if (Raul.slot[i][j] == 6)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.rau);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.q);
                                 else if (Raul.slot[i][j] == 7)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.k);
                                 else if (Raul.slot[i][j] == 8)
-                                    image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
+                                    image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
 
                         Raul.calculateWins();
