@@ -143,7 +143,15 @@ public class Slots extends AppCompatActivity {
                                     image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
                                 else if (Raul.slot[i-12][j] == 8)
                                     image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
-                            }}
+                            }
+                         }else{
+                        AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
+                        AnimCas1.play(cascada1.get(0)).with(cascada1.get(1)).with(cascada1.get(2)).with(cascada1.get(3)).with(cascada1.get(4)).with(cascada1.get(5)).with(cascada1.get(6)).with(cascada1.get(7)).with(cascada1.get(8)).with(cascada1.get(9)).with(cascada1.get(10)).with(cascada1.get(11)).with(cascada1.get(12)).with(cascada1.get(13)).with(cascada1.get(14));
+                        AnimCas2.play(cascada2.get(0)).with(cascada2.get(1)).with(cascada2.get(2)).with(cascada2.get(3)).with(cascada2.get(4)).with(cascada2.get(5)).with(cascada2.get(6)).with(cascada2.get(7)).with(cascada2.get(8)).with(cascada2.get(9)).with(cascada2.get(10)).with(cascada2.get(11)).with(cascada2.get(12)).with(cascada2.get(13)).with(cascada2.get(14));
+                        AnimCas3.play(cascada3.get(0)).with(cascada3.get(1)).with(cascada3.get(2)).with(cascada3.get(3)).with(cascada3.get(4)).with(cascada3.get(5)).with(cascada3.get(6)).with(cascada3.get(7)).with(cascada3.get(8)).with(cascada3.get(9)).with(cascada3.get(10)).with(cascada3.get(11)).with(cascada3.get(12)).with(cascada3.get(13)).with(cascada3.get(14));
+                        AnimEcr.play(ecranul.get(0)).with(ecranul.get(1)).with(ecranul.get(2)).with(ecranul.get(3)).with(ecranul.get(4)).with(ecranul.get(5)).with(ecranul.get(6)).with(ecranul.get(7)).with(ecranul.get(8)).with(ecranul.get(9)).with(ecranul.get(10)).with(ecranul.get(11)).with(ecranul.get(12)).with(ecranul.get(13)).with(ecranul.get(14));
+
+                    }
 
                     Raul.initSlot();
 
@@ -171,12 +179,7 @@ public class Slots extends AppCompatActivity {
                     win = Raul.returnWin();
 
                     //loads animations into each animator set
-                    AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
-                    AnimCas1.play(cascada1.get(0)).with(cascada1.get(1)).with(cascada1.get(2)).with(cascada1.get(3)).with(cascada1.get(4)).with(cascada1.get(5)).with(cascada1.get(6)).with(cascada1.get(7)).with(cascada1.get(8)).with(cascada1.get(9)).with(cascada1.get(10)).with(cascada1.get(11)).with(cascada1.get(12)).with(cascada1.get(13)).with(cascada1.get(14));
-                    AnimCas2.play(cascada2.get(0)).with(cascada2.get(1)).with(cascada2.get(2)).with(cascada2.get(3)).with(cascada2.get(4)).with(cascada2.get(5)).with(cascada2.get(6)).with(cascada2.get(7)).with(cascada2.get(8)).with(cascada2.get(9)).with(cascada2.get(10)).with(cascada2.get(11)).with(cascada2.get(12)).with(cascada2.get(13)).with(cascada2.get(14));
-                    AnimCas3.play(cascada3.get(0)).with(cascada3.get(1)).with(cascada3.get(2)).with(cascada3.get(3)).with(cascada3.get(4)).with(cascada3.get(5)).with(cascada3.get(6)).with(cascada3.get(7)).with(cascada3.get(8)).with(cascada3.get(9)).with(cascada3.get(10)).with(cascada3.get(11)).with(cascada3.get(12)).with(cascada3.get(13)).with(cascada3.get(14));
-                    AnimEcr.play(ecranul.get(0)).with(ecranul.get(1)).with(ecranul.get(2)).with(ecranul.get(3)).with(ecranul.get(4)).with(ecranul.get(5)).with(ecranul.get(6)).with(ecranul.get(7)).with(ecranul.get(8)).with(ecranul.get(9)).with(ecranul.get(10)).with(ecranul.get(11)).with(ecranul.get(12)).with(ecranul.get(13)).with(ecranul.get(14));
-                    AnimCas.start(); //commands the start of the animations
+                     AnimCas.start(); //commands the start of the animations
                     AnimCas1.start();
                     AnimCas2.start();
                     AnimCas3.start();
@@ -221,25 +224,33 @@ public class Slots extends AppCompatActivity {
                         money -= bet;
 
                         if(NuPrimaRulare){    //ia setul de imagini din vechia rulare si le scrie pe noua rulare sa evite o rescriere a elementelor direct pe ecranul utilizatorului
-                            for (i = 12; i < 15; i++)
-                                for (j = 0; j < 5; j++) {
-                                    if (Raul.slot[i-12][j] == 1)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.bobina);
-                                    else if (Raul.slot[i-12][j] == 2)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                                    else if (Raul.slot[i-12][j] == 3)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.dioda);
-                                    else if (Raul.slot[i-12][j] == 4)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.resistor);
-                                    else if (Raul.slot[i-12][j] == 5)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.transistor);
-                                    else if (Raul.slot[i-12][j] == 6)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.rau);
-                                    else if (Raul.slot[i-12][j] == 7)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
-                                    else if (Raul.slot[i-12][j] == 8)
-                                        image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
-                                }}
+                        for (i = 12; i < 15; i++)
+                            for (j = 0; j < 5; j++) {
+                                if (Raul.slot[i-12][j] == 1)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.bobina);
+                                else if (Raul.slot[i-12][j] == 2)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.condensator);
+                                else if (Raul.slot[i-12][j] == 3)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.dioda);
+                                else if (Raul.slot[i-12][j] == 4)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.resistor);
+                                else if (Raul.slot[i-12][j] == 5)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.transistor);
+                                else if (Raul.slot[i-12][j] == 6)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.rau);
+                                else if (Raul.slot[i-12][j] == 7)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.ghiu);
+                                else if (Raul.slot[i-12][j] == 8)
+                                    image.get(i * 5 + j).setImageResource(R.drawable.constantinescu);
+                            }
+                        }else{
+                            AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
+                            AnimCas1.play(cascada1.get(0)).with(cascada1.get(1)).with(cascada1.get(2)).with(cascada1.get(3)).with(cascada1.get(4)).with(cascada1.get(5)).with(cascada1.get(6)).with(cascada1.get(7)).with(cascada1.get(8)).with(cascada1.get(9)).with(cascada1.get(10)).with(cascada1.get(11)).with(cascada1.get(12)).with(cascada1.get(13)).with(cascada1.get(14));
+                            AnimCas2.play(cascada2.get(0)).with(cascada2.get(1)).with(cascada2.get(2)).with(cascada2.get(3)).with(cascada2.get(4)).with(cascada2.get(5)).with(cascada2.get(6)).with(cascada2.get(7)).with(cascada2.get(8)).with(cascada2.get(9)).with(cascada2.get(10)).with(cascada2.get(11)).with(cascada2.get(12)).with(cascada2.get(13)).with(cascada2.get(14));
+                            AnimCas3.play(cascada3.get(0)).with(cascada3.get(1)).with(cascada3.get(2)).with(cascada3.get(3)).with(cascada3.get(4)).with(cascada3.get(5)).with(cascada3.get(6)).with(cascada3.get(7)).with(cascada3.get(8)).with(cascada3.get(9)).with(cascada3.get(10)).with(cascada3.get(11)).with(cascada3.get(12)).with(cascada3.get(13)).with(cascada3.get(14));
+                            AnimEcr.play(ecranul.get(0)).with(ecranul.get(1)).with(ecranul.get(2)).with(ecranul.get(3)).with(ecranul.get(4)).with(ecranul.get(5)).with(ecranul.get(6)).with(ecranul.get(7)).with(ecranul.get(8)).with(ecranul.get(9)).with(ecranul.get(10)).with(ecranul.get(11)).with(ecranul.get(12)).with(ecranul.get(13)).with(ecranul.get(14));
+
+                        }
 
                         Raul.initSlot();
 
@@ -266,12 +277,7 @@ public class Slots extends AppCompatActivity {
                         Raul.calculateWins();
                         win = Raul.returnWin();
   //loads animations into each animator set
-                        AnimCas.play(cascada.get(0)).with(cascada.get(1)).with(cascada.get(2)).with(cascada.get(3)).with(cascada.get(4)).with(cascada.get(5)).with(cascada.get(6)).with(cascada.get(7)).with(cascada.get(8)).with(cascada.get(9)).with(cascada.get(10)).with(cascada.get(11)).with(cascada.get(12)).with(cascada.get(13)).with(cascada.get(14));
-                        AnimCas1.play(cascada1.get(0)).with(cascada1.get(1)).with(cascada1.get(2)).with(cascada1.get(3)).with(cascada1.get(4)).with(cascada1.get(5)).with(cascada1.get(6)).with(cascada1.get(7)).with(cascada1.get(8)).with(cascada1.get(9)).with(cascada1.get(10)).with(cascada1.get(11)).with(cascada1.get(12)).with(cascada1.get(13)).with(cascada1.get(14));
-                        AnimCas2.play(cascada2.get(0)).with(cascada2.get(1)).with(cascada2.get(2)).with(cascada2.get(3)).with(cascada2.get(4)).with(cascada2.get(5)).with(cascada2.get(6)).with(cascada2.get(7)).with(cascada2.get(8)).with(cascada2.get(9)).with(cascada2.get(10)).with(cascada2.get(11)).with(cascada2.get(12)).with(cascada2.get(13)).with(cascada2.get(14));
-                        AnimCas3.play(cascada3.get(0)).with(cascada3.get(1)).with(cascada3.get(2)).with(cascada3.get(3)).with(cascada3.get(4)).with(cascada3.get(5)).with(cascada3.get(6)).with(cascada3.get(7)).with(cascada3.get(8)).with(cascada3.get(9)).with(cascada3.get(10)).with(cascada3.get(11)).with(cascada3.get(12)).with(cascada3.get(13)).with(cascada3.get(14));
-                        AnimEcr.play(ecranul.get(0)).with(ecranul.get(1)).with(ecranul.get(2)).with(ecranul.get(3)).with(ecranul.get(4)).with(ecranul.get(5)).with(ecranul.get(6)).with(ecranul.get(7)).with(ecranul.get(8)).with(ecranul.get(9)).with(ecranul.get(10)).with(ecranul.get(11)).with(ecranul.get(12)).with(ecranul.get(13)).with(ecranul.get(14));
-                        //AnimCas.start(); //commands the start of the animations
+                          //AnimCas.start(); //commands the start of the animations
                         //AnimCas1.start();
                         //AnimCas2.start();
                         //AnimCas3.start();
