@@ -74,6 +74,7 @@ public class Slots extends AppCompatActivity {
         bet = sharedPreferences.getFloat("userBet", 2);
         Raul.setBet(bet); //sets the bet variable to be used by the Player class to perform calculations
 
+        Raul.initWinCoefficients(); //sets the winning lines
 
         BetText.setText(Float.toString(bet));
         BalanceText.setText(Float.toString(money));
@@ -127,21 +128,21 @@ public class Slots extends AppCompatActivity {
                     if(NuPrimaRulare){    //ia setul de imagini din vechia rulare si le scrie pe noua rulare sa evite o rescriere a elementelor direct pe ecranul utilizatorului
                         for (i = 12; i < 15; i++)
                             for (j = 0; j < 5; j++) {
-                                if (Raul.slot[i-12][j] == 1)
+                                if (Raul.getSlot(i-12, j) == 1)
                                     image.get(i * 5 + j).setImageResource(R.drawable.bobina);
-                                else if (Raul.slot[i-12][j] == 2)
+                                else if (Raul.getSlot(i-12, j) == 2)
                                     image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                                else if (Raul.slot[i-12][j] == 3)
+                                else if (Raul.getSlot(i-12, j) == 3)
                                     image.get(i * 5 + j).setImageResource(R.drawable.dioda);
-                                else if (Raul.slot[i-12][j] == 4)
+                                else if (Raul.getSlot(i-12, j) == 4)
                                     image.get(i * 5 + j).setImageResource(R.drawable.resistor);
-                                else if (Raul.slot[i-12][j] == 5)
+                                else if (Raul.getSlot(i-12, j) == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
-                                else if (Raul.slot[i-12][j] == 6)
+                                else if (Raul.getSlot(i-12, j) == 6)
                                     image.get(i * 5 + j).setImageResource(R.drawable.q);
-                                else if (Raul.slot[i-12][j] == 7)
+                                else if (Raul.getSlot(i-12, j) == 7)
                                     image.get(i * 5 + j).setImageResource(R.drawable.k);
-                                else if (Raul.slot[i-12][j] == 8)
+                                else if (Raul.getSlot(i-12, j) == 8)
                                     image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
                          }else{
@@ -154,24 +155,25 @@ public class Slots extends AppCompatActivity {
                     }
 
                     Raul.initSlot();
+                    Raul.initAfterWin();
 
                     for (i = 0; i < 12; i++)
                         for (j = 0; j < 5; j++) {
-                            if (Raul.slot[i][j] == 1)
+                            if (Raul.getSlot(i, j) == 1)
                                 image.get(i * 5 + j).setImageResource(R.drawable.bobina);
-                            else if (Raul.slot[i][j] == 2)
+                            else if (Raul.getSlot(i, j) == 2)
                                 image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                                else if (Raul.slot[i][j] == 3)
+                                else if (Raul.getSlot(i, j) == 3)
                                 image.get(i * 5 + j).setImageResource(R.drawable.dioda);
-                            else if (Raul.slot[i][j] == 4)
+                            else if (Raul.getSlot(i, j) == 4)
                                 image.get(i * 5 + j).setImageResource(R.drawable.resistor);
-                            else if (Raul.slot[i][j] == 5)
+                            else if (Raul.getSlot(i, j) == 5)
                                 image.get(i * 5 + j).setImageResource(R.drawable.transistor);
-                            else if (Raul.slot[i][j] == 6)
+                            else if (Raul.getSlot(i, j) == 6)
                                 image.get(i * 5 + j).setImageResource(R.drawable.q);
-                            else if (Raul.slot[i][j] == 7)
+                            else if (Raul.getSlot(i, j) == 7)
                                 image.get(i * 5 + j).setImageResource(R.drawable.k);
-                             else if (Raul.slot[i][j] == 8)
+                             else if (Raul.getSlot(i, j) == 8)
                                 image.get(i * 5 + j).setImageResource(R.drawable.j);
                         }
 
@@ -226,21 +228,21 @@ public class Slots extends AppCompatActivity {
                         if(NuPrimaRulare){    //ia setul de imagini din vechia rulare si le scrie pe noua rulare sa evite o rescriere a elementelor direct pe ecranul utilizatorului
                         for (i = 12; i < 15; i++)
                             for (j = 0; j < 5; j++) {
-                                if (Raul.slot[i-12][j] == 1)
+                                if (Raul.getSlot(i-12, j) == 1)
                                     image.get(i * 5 + j).setImageResource(R.drawable.bobina);
-                                else if (Raul.slot[i-12][j] == 2)
+                                else if (Raul.getSlot(i-12, j) == 2)
                                     image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                                else if (Raul.slot[i-12][j] == 3)
+                                else if (Raul.getSlot(i-12, j) == 3)
                                     image.get(i * 5 + j).setImageResource(R.drawable.dioda);
-                                else if (Raul.slot[i-12][j] == 4)
+                                else if (Raul.getSlot(i-12, j) == 4)
                                     image.get(i * 5 + j).setImageResource(R.drawable.resistor);
-                                else if (Raul.slot[i-12][j] == 5)
+                                else if (Raul.getSlot(i-12, j) == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
-                                else if (Raul.slot[i-12][j] == 6)
+                                else if (Raul.getSlot(i-12, j) == 6)
                                     image.get(i * 5 + j).setImageResource(R.drawable.q);
-                                else if (Raul.slot[i-12][j] == 7)
+                                else if (Raul.getSlot(i-12, j) == 7)
                                     image.get(i * 5 + j).setImageResource(R.drawable.k);
-                                else if (Raul.slot[i-12][j] == 8)
+                                else if (Raul.getSlot(i-12, j) == 8)
                                     image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
                         }else{
@@ -256,21 +258,21 @@ public class Slots extends AppCompatActivity {
 
                         for (i = 0; i < 12; i++)
                             for (j = 0; j < 5; j++) {
-                                if (Raul.slot[i][j] == 1)
+                                if (Raul.getSlot(i, j) == 1)
                                     image.get(i * 5 + j).setImageResource(R.drawable.bobina);
-                                else if (Raul.slot[i][j] == 2)
+                                else if (Raul.getSlot(i, j) == 2)
                                     image.get(i * 5 + j).setImageResource(R.drawable.condensator);
-                                else if (Raul.slot[i][j] == 3)
+                                else if (Raul.getSlot(i, j) == 3)
                                     image.get(i * 5 + j).setImageResource(R.drawable.dioda);
-                                else if (Raul.slot[i][j] == 4)
+                                else if (Raul.getSlot(i, j) == 4)
                                     image.get(i * 5 + j).setImageResource(R.drawable.resistor);
-                                else if (Raul.slot[i][j] == 5)
+                                else if (Raul.getSlot(i, j) == 5)
                                     image.get(i * 5 + j).setImageResource(R.drawable.transistor);
-                                else if (Raul.slot[i][j] == 6)
+                                else if (Raul.getSlot(i, j) == 6)
                                     image.get(i * 5 + j).setImageResource(R.drawable.q);
-                                else if (Raul.slot[i][j] == 7)
+                                else if (Raul.getSlot(i, j) == 7)
                                     image.get(i * 5 + j).setImageResource(R.drawable.k);
-                                else if (Raul.slot[i][j] == 8)
+                                else if (Raul.getSlot(i, j) == 8)
                                     image.get(i * 5 + j).setImageResource(R.drawable.j);
                             }
 
