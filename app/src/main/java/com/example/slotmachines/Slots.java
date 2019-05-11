@@ -270,7 +270,7 @@ public class Slots extends AppCompatActivity {
                             }
 
                         Raul.calculateWins();
-                        win = Raul.returnWin();
+                        win = (int)Raul.returnWin();
   //loads animations into each animator set
                           //AnimCas.start(); //commands the start of the animations
                         //AnimCas1.start();
