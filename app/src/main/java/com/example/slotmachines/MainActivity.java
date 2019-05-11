@@ -2,17 +2,12 @@ package com.example.slotmachines;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
         //declaring main menu buttons
         Button exitButton = findViewById(R.id.ExitButton);
-        Button settingsButton = findViewById(R.id.SettingsButton);
+        Button creditsButton = findViewById(R.id.CreditsButton);
         Button showButton = findViewById(R.id.ShowMoney);
         Button startButton = findViewById(R.id.StartButton);
 
-        final Intent slotsIntent = new Intent(this, Slots.class);//required to start the second activity
+        final Intent slotsIntent = new Intent(this, Slots.class);//required to start the slot activity
+        final Intent creditsIntent = new Intent(this, Creditsactivity.class);//required to start the credits activity
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +41,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(slotsIntent);
             }
         });
-        //write new code here
+
+
+        showButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        creditsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(creditsIntent);
+            }
+        });
+
     }
 
 

@@ -26,16 +26,16 @@
         android:background="@drawable/menu_buttons"
         android:text="Show me my Money"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/SettingsButton"
+        app:layout_constraintEnd_toStartOf="@+id/CreditsButton"
         app:layout_constraintStart_toEndOf="@+id/StartButton"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
-        android:id="@+id/SettingsButton"
+        android:id="@+id/CreditsButton"
         android:layout_width="140dp"
         android:layout_height="70dp"
         android:background="@drawable/menu_buttons"
-        android:text="Settings"
+        android:text="Credits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ExitButton"
         app:layout_constraintStart_toEndOf="@+id/ShowMoney"
@@ -49,7 +49,7 @@
         android:text="Exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/SettingsButton"
+        app:layout_constraintStart_toEndOf="@+id/CreditsButton"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <ImageView
