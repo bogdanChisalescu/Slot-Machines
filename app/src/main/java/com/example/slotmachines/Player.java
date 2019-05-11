@@ -94,7 +94,7 @@ public class Player {
                 index = i;
             }
 
-        if(index != -1) return (afterWin[index] + winCoeff[index]) * bet * (float)0.1; //multiply the bet by 0.1 because the win is high by design
+        if(index != -1) return (afterWin[index] + winCoeff[index]) * bet * (float)0.1 / (float)1.5; //multiply the bet by 0.1 because the win is high by design
         else return 0;
 
     }

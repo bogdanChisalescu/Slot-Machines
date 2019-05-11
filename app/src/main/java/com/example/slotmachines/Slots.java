@@ -178,7 +178,7 @@ public class Slots extends AppCompatActivity {
                         }
 
                     Raul.calculateWins();
-                    win = Raul.returnWin();
+                    win = (int)Raul.returnWin();
 
                     //loads animations into each animator set
                      AnimCas.start(); //commands the start of the animations
@@ -192,17 +192,10 @@ public class Slots extends AppCompatActivity {
                     Raul.flushWin();
                     WinText.setText(Float.toString(win));
                     BalanceText.setText(Float.toString(money));
-                    if(win!=0){
-                        message.setMessage("You Won!") //blocheaza rularea pt debugging
-                            .setPositiveButton("GG", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                }
-                        });
-                        message.show();
-                    }
 
-                } else {
+
+                }
+                else {
                    message.setMessage("Not enough money")    //incrementor de balance pt debugging
                             .setPositiveButton("Add 1000", new DialogInterface.OnClickListener() {
                                 @Override
