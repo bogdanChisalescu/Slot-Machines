@@ -67,7 +67,7 @@ public class Slots extends AppCompatActivity {
         BetText = findViewById(R.id.Bet);
 
         //load the money variable stored in permanent memory
-        money = sharedPreferences.getFloat("userMoney", 1000);
+        money = sharedPreferences.getFloat("userMoney", 100);
         Raul.setMoney(money); //sets the money variable to be used by the Player class to perform calculations
 
         //load the bet variable stored in permanent memory
@@ -200,7 +200,7 @@ public class Slots extends AppCompatActivity {
                             .setPositiveButton("Add 1000", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    money += 1000;
+                                    money += 100;
                                     BalanceText.setText(Float.toString(money));
                                 }
                             });
