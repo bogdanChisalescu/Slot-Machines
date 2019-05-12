@@ -87,15 +87,15 @@ public class Slots extends AppCompatActivity {
 
         int dur=1000;
         for (i = 0; i < 15; i++) {   //defines the animation type and duration for the image array elements
-            ecranul.add(ObjectAnimator.ofFloat(image.get(i+60), "translationY", 0, 2800));
+            ecranul.add(ObjectAnimator.ofFloat(image.get(i+60), "translationY", 0, 3000));
             ecranul.get(i).setDuration(dur);
-            cascada.add(ObjectAnimator.ofFloat(image.get(i), "translationY", -2800, 0));
+            cascada.add(ObjectAnimator.ofFloat(image.get(i), "translationY", -3000, 0));
             cascada.get(i).setDuration(dur);
-            cascada1.add(ObjectAnimator.ofFloat(image.get(i + 30), "translationY", -2100, 700));
+            cascada1.add(ObjectAnimator.ofFloat(image.get(i + 30), "translationY", -2250, 750));
             cascada1.get(i).setDuration(dur);
-            cascada2.add(ObjectAnimator.ofFloat(image.get(i + 45), "translationY", -1400, 1400));
+            cascada2.add(ObjectAnimator.ofFloat(image.get(i + 45), "translationY", -1500, 1500));
             cascada2.get(i).setDuration(dur);
-            cascada3.add(ObjectAnimator.ofFloat(image.get(i + 15), "translationY", -700, 2100));
+            cascada3.add(ObjectAnimator.ofFloat(image.get(i + 15), "translationY", -750, 2250));
             cascada3.get(i).setDuration(dur);
         }
 
